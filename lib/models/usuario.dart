@@ -1,12 +1,12 @@
 class Usuario {
   //
   String nombre;
-  int edad;
-  List<String> profesiones;
+  int? edad;
+  List<String>? profesiones;
 
   Usuario({
     required this.nombre,
-    required this.edad,
-    required this.profesiones,
-  });
+    this.edad,
+    this.profesiones,
+  }) : assert(nombre != null);
 }

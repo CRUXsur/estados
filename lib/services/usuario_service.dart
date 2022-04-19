@@ -15,8 +15,13 @@ class _UsuarioService {
   bool get existeUsuario => (_usuario != null) ? true : false;
 
   //y un metodo para cargar la informacion, establecer valores
-  void cargarUsuario(Usuario user) {
+  void cargarUsuario(Usuario? user) {
     _usuario = user;
+  }
+
+  // y si yo quiero cambiar la edad
+  void cambiarEdad(int edad) {
+    _usuario?.edad = edad;
   }
 }
 
@@ -28,4 +33,4 @@ class _UsuarioService {
 
 //* otra seria crear el factory constructor, el constructor privado.....
 
-final usuraioService = _UsuarioService();
+final usuarioService = _UsuarioService();
