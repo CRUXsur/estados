@@ -12,9 +12,19 @@ class Pagina1Page extends StatelessWidget {
       appBar: AppBar(
         title: const Center(child: Text('Pagina1')),
       ),
-      body: usuarioService.existeUsuario
-          ? InformacionUsuario(usuarioService.usuario)
-          : const Center(child: Text('No hay informacion del usuario')),
+      //! para usar mi stteam voy a envolver esto:
+      //! usuarioService.existeUsuario en un streambuilder...
+      //! este stteambuilder se redibuja cada vez que tengamos
+      //! un nuevo valor en el snapshot....
+      body: StreamBuilder(
+        stream: usuarioService.usuarioStream,
+        //initialData: initialData, no tenemos nada
+        builder: (BuildContext context, AsyncSnapshot<Usuario> snapshot) {
+          return snapshot.hasData //usuarioService.existeUsuario
+              ? InformacionUsuario(snapshot.data) //usuarioService.usuario)
+              : const Center(child: Text('No hay informacion del usuario'));
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.accessibility_new),
         onPressed: () {

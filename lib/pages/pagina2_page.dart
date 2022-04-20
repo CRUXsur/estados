@@ -49,9 +49,7 @@ class Pagina2Page extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               color: Colors.blue,
-              onPressed: () {
-                //
-              },
+              onPressed: () {},
             ),
           ],
         ),
