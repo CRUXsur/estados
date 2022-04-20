@@ -16,7 +16,8 @@ class _UsuarioService {
   //* lo definimos como un  objeto de tipo Usuario
 
   StreamController<Usuario> _usuarioStreamController =
-      new StreamController<Usuario>();
+      StreamController<Usuario>.broadcast();
+  //! broadcast() emite valores a varios listeners
 
   Usuario? get usuario => _usuario;
 
@@ -41,6 +42,10 @@ class _UsuarioService {
     _usuario?.edad = edad;
     //! lo mismo podemos hacer para la edad
     _usuarioStreamController.add(_usuario!);
+  }
+
+  dispose() {
+    _usuarioStreamController.close();
   }
 }
 
