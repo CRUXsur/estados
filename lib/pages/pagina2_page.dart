@@ -9,9 +9,12 @@ class Pagina2Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final usuarioService = Provider.of<UsuarioService>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('Pagina2')),
+        title: usuarioService.existeUsuario
+            ? Text('Nombre: ${usuarioService.usuario!.nombre}')
+            : const Text('Pagina 2'),
       ),
       body: Center(
         child: Column(
@@ -24,9 +27,9 @@ class Pagina2Page extends StatelessWidget {
               ),
               color: Colors.blue,
               onPressed: () {
-                //* dentro de un metodo el listen en false
-                final usuarioService =
-                    Provider.of<UsuarioService>(context, listen: false);
+                //* dentro de un metodo el listen en false o lo llevo arriba
+                //final usuarioService =
+                //    Provider.of<UsuarioService>(context, listen: false);
                 //*me creo el usuario
                 final newUser = Usuario(
                     nombre: 'Grace',
@@ -45,7 +48,7 @@ class Pagina2Page extends StatelessWidget {
               ),
               color: Colors.blue,
               onPressed: () {
-                //
+                usuarioService.cambiarEdad(45);
               },
             ),
             MaterialButton(

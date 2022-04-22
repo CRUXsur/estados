@@ -8,6 +8,7 @@ class UsuarioService with ChangeNotifier {
   Usuario? _usuario;
 
   Usuario? get usuario => _usuario; //simplemente retorno la instancia
+  bool get existeUsuario => (_usuario != null) ? true : false;
 
   //*establecer una forma para cargar el usuario, mediante setter
   set usuario(Usuario? user) {
@@ -15,5 +16,14 @@ class UsuarioService with ChangeNotifier {
     notifyListeners();
   }
 
-  bool get existeUsuario => (_usuario != null) ? true : false;
+  void cambiarEdad(int edad) {
+    _usuario?.edad = edad;
+    notifyListeners();
+  }
+
+  //* (_usuario != null)  : false;
+  void removerUsuario() {
+    _usuario = null;
+    notifyListeners();
+  }
 }
