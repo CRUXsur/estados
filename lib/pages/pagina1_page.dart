@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:estados/models/usuario.dart';
 import 'package:estados/services/usuario_service.dart';
 
 class Pagina1Page extends StatelessWidget {
@@ -16,7 +17,7 @@ class Pagina1Page extends StatelessWidget {
       ),
       //body: const InformacionUsuario(),
       body: usuarioService.existeUsuario
-          ? const InformacionUsuario()
+          ? InformacionUsuario(usuarioService.usuario!)
           : const Center(
               child: Text('no hay usuario seleccionado'),
             ),
@@ -32,9 +33,9 @@ class Pagina1Page extends StatelessWidget {
 }
 
 class InformacionUsuario extends StatelessWidget {
-  const InformacionUsuario({
-    Key? key,
-  }) : super(key: key);
+  final Usuario usuario;
+
+  const InformacionUsuario(this.usuario);
 
   @override
   Widget build(BuildContext context) {
@@ -44,19 +45,19 @@ class InformacionUsuario extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          Text(
+        children: [
+          const Text(
             'General',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          Divider(),
-          ListTile(title: Text('Nombre:')),
-          ListTile(title: Text('Edad:')),
-          Text(
+          const Divider(),
+          ListTile(title: Text('Nombre: ${usuario.nombre}')),
+          ListTile(title: Text('Edad: ${usuario.edad}')),
+          const Text(
             'Profesiones',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          Divider(),
+          const Divider(),
           ListTile(title: Text('Prefesiones1')),
           ListTile(title: Text('Profesiones1')),
           ListTile(title: Text('Profesiones1')),
