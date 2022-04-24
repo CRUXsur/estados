@@ -34,7 +34,10 @@ class Pagina2Page extends StatelessWidget {
                 final newUser = Usuario(
                     nombre: 'Grace',
                     edad: 15,
-                    profesiones: ['Student', 'Artist']);
+                    profesiones: [
+                      'Fullstack Developer',
+                      'Video Jugador Experto'
+                    ]);
                 //*aqui uso el usuario para esteblecer un valor
                 //*al hacerlo asi va estar disparando el setter del
                 //*UsuarioService
@@ -59,6 +62,7 @@ class Pagina2Page extends StatelessWidget {
               color: Colors.blue,
               onPressed: () {
                 //
+                usuarioService.agregarProfesion();
               },
             ),
           ],

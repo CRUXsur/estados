@@ -66,9 +66,23 @@ class InformacionUsuario extends StatelessWidget {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const Divider(),
-          ListTile(title: Text('Prefesiones1')),
-          ListTile(title: Text('Profesiones1')),
-          ListTile(title: Text('Profesiones1')),
+          //
+          //tomo el listado de profesiones , lo paso por el map
+          //y este map me perimte, transformar cada una de ellas
+          //y retornar algo diferente, en este caso voay a retorar una lista
+          //o un nuevo ListTile
+          //... hace la desestructuracion de cada uno de los elementos
+          //de un arreglo, todo esto regresa un arreglo de ListTiles,
+          //al usar la desestructuracion dentro de un arreglo
+          //entonces manda cada uno de los elementos de la lista de manera
+          //individual...y lo acepta perfectamente
+
+          ...usuario.profesiones
+              .map((e) => ListTile(
+                    title: Text(e),
+                  ))
+              .toList()
+          // ListTile(title: Text('Prefesiones1')),
         ],
       ),
     );
