@@ -13,4 +13,14 @@ class UsuarioCubit extends Cubit<UsuarioState> {
   void seleccionarUsuario(Usuario user) {
     emit(UsuarioActivo(user));
   }
+
+  void cambiarEdad(int edad) {
+    final currentState = state;
+    //validacion
+    if (currentState is UsuarioActivo) {
+      //quiero cambiar la edad....una nueva caopia de ese usuario!
+      final newUser = currentState.usuario.copyWith(edad: 30);
+      emit(UsuarioActivo(newUser));
+    }
+  }
 }
