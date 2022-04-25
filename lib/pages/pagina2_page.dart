@@ -55,6 +55,7 @@ class Pagina2Page extends StatelessWidget {
               color: Colors.blue,
               onPressed: () {
                 //
+                usuarioCubit.agregarProfesion();
               },
             ),
           ],

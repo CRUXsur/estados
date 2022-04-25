@@ -10,10 +10,24 @@ class Usuario {
   //! valor a los final int edad....
   //! esto es un metodo que regresa un Usuario y recibe
   //! String? nombre, int? edad,List<String>? profesiones
-  Usuario copyWith({String? nombre, int? edad, List<String>? profesiones}) =>
+  Usuario copyWith({
+    String? nombre,
+    int? edad,
+    List<String>? profesiones,
+  }) =>
       Usuario(
         nombre: nombre ?? this.nombre, //si no recibo ?? entonces this.nombre
         edad: edad ?? this.edad,
         profesiones: profesiones ?? this.profesiones,
       );
+  //
+  //or
+  //
+  // Usuario copyWith({String? nombre, int? edad, List<String>? profesiones}) {
+  //   return Usuario(
+  //     nombre: nombre ?? this.nombre, //si no recibo ?? entonces this.nombre
+  //     edad: edad ?? this.edad,
+  //     profesiones: profesiones ?? this.profesiones,
+  //   );
+  // }
 }
