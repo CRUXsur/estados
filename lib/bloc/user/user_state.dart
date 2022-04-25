@@ -25,3 +25,9 @@ abstract class UserState {
     this.user,
   });
 }
+
+//Me creo un estado inicial, sabemos que no tenemnos un usuario logueado
+//con esto inicializamos nuestro UserBloc!
+class UserInitialState extends UserState {
+  const UserInitialState() : super(existUser: false, user: null);
+}
