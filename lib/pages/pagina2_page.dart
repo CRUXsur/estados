@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:estados/bloc/user/user_bloc.dart';
+import 'package:estados/models/user.dart';
+
 class Pagina2Page extends StatelessWidget {
   const Pagina2Page({Key? key}) : super(key: key);
 
@@ -20,7 +24,17 @@ class Pagina2Page extends StatelessWidget {
               ),
               color: Colors.blue,
               onPressed: () {
-                //
+                //creo el usuario
+                final newUser = User(
+                  nombre: 'Grace',
+                  edad: 15,
+                  profesiones: ['LondonTown School'],
+                );
+                //aqui llamo al evento!
+                //primero necesitamos obtener la instancia de nuestro BLoC
+                //que se encuentra en algun lado del contexto(context)
+                BlocProvider.of<UserBloc>(context, listen: false)
+                    .add(ActivateUser(newUser));
               },
             ),
             MaterialButton(

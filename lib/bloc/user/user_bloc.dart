@@ -15,8 +15,14 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   //crtl . (UserBloc) y me crea mi estado inicial de mi bloc
   UserBloc() : super(const UserInitialState()) {
     on<ActivateUser>((event, emit) {
-      // TODO: implement event handler
+      //implement event handler
+      //print('ActivateUser called');
+      //emito un nuevo estado!, para eso cree la clase
+      //class UserSetState extends UserState {.......
+      emit(UserSetState(event.user));
     });
+    //or comprimido!
+    //on<ActivateUser>((event, emit) => emit(UserSetState(event.user)));
   }
   //
 }

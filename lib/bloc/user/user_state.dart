@@ -31,3 +31,11 @@ abstract class UserState {
 class UserInitialState extends UserState {
   const UserInitialState() : super(existUser: false, user: null);
 }
+
+//creo otra clase para establecer un nuevo estado!
+class UserSetState extends UserState {
+  //
+  final User newUser; //el usuario que me mando
+  const UserSetState(this.newUser) // llamamos al padre
+      : super(existUser: true, user: newUser);
+}
