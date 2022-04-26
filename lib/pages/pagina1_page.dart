@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:estados/bloc/user/user_bloc.dart';
 
 class Pagina1Page extends StatelessWidget {
   const Pagina1Page({Key? key}) : super(key: key);
@@ -9,7 +11,20 @@ class Pagina1Page extends StatelessWidget {
       appBar: AppBar(
         title: const Center(child: Text('Pagina1')),
       ),
-      body: const InformacionUsuario(),
+      //BLoC Builder, es un widget que construye basado en los
+      //cambios del state, cada vez que hay un cambio en el
+      //state, este widget se va a volver a contruir,
+      //redibujando esta informacion
+      body: BlocBuilder<UserBloc, UserState>(
+        builder: (_, state) {
+          //buildWhen:
+          return state.existUser
+              ? const InformacionUsuario()
+              : const Center(
+                  child: Text('No hay usuario seleccionado'),
+                );
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.accessibility_new),
         onPressed: () {
