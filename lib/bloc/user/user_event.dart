@@ -30,5 +30,11 @@ class ChangeUserAge extends UserEvent {
   ChangeUserAge(this.age);
 }
 
-//!recuerden que entre el estado y eventos NO EXISTE ninguna 
+//!recuerden que entre el estado y eventos NO EXISTE ninguna
 //!relacion directa, quien hace la interaccion es el BLoC
+
+//andir profesion
+class AddProfession extends UserEvent {
+  final String profession;
+  AddProfession(this.profession);
+}

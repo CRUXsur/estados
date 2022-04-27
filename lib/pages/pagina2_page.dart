@@ -60,6 +60,7 @@ class Pagina2Page extends StatelessWidget {
               color: Colors.blue,
               onPressed: () {
                 //
+                userBloc.add(AddProfession('Nueva Profesion'));
               },
             ),
           ],
