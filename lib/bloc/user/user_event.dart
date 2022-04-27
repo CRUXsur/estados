@@ -20,3 +20,15 @@ class ActivateUser extends UserEvent {
   final User user;
   ActivateUser(this.user); //constructor posicional
 }
+
+//necesito un evento que me sirva para saber que hacer cuando recibo
+//algo que diga cambie la edad....
+class ChangeUserAge extends UserEvent {
+  //necesito
+  final int age;
+  //creo el constructor
+  ChangeUserAge(this.age);
+}
+
+//!recuerden que entre el estado y eventos NO EXISTE ninguna 
+//!relacion directa, quien hace la interaccion es el BLoC

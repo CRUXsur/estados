@@ -9,6 +9,8 @@ class Pagina2Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userBloc = BlocProvider.of<UserBloc>(context, listen: false);
+
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text('Pagina2')),
@@ -33,8 +35,9 @@ class Pagina2Page extends StatelessWidget {
                 //aqui llamo al evento!
                 //primero necesitamos obtener la instancia de nuestro BLoC
                 //que se encuentra en algun lado del contexto(context)
-                BlocProvider.of<UserBloc>(context, listen: false)
-                    .add(ActivateUser(newUser));
+                //    BlocProvider.of<UserBloc>(context, listen: false)
+                //        .add(ActivateUser(newUser));
+                userBloc.add(ActivateUser(newUser));
               },
             ),
             MaterialButton(
@@ -44,7 +47,9 @@ class Pagina2Page extends StatelessWidget {
               ),
               color: Colors.blue,
               onPressed: () {
-                //
+                //    BlocProvider.of<UserBloc>(context, listen: false)
+                //        .add(ChangeUserAge(25));
+                userBloc.add(ChangeUserAge(25));
               },
             ),
             MaterialButton(

@@ -32,9 +32,9 @@ class UserInitialState extends UserState {
   const UserInitialState() : super(existUser: false, user: null);
 }
 
-//creo otra clase para establecer un nuevo estado!
+//creo otra clase generadora de estado para establecer un nuevo estado!
 class UserSetState extends UserState {
-  //
+  //recibo un user y genera un nuevo estado!!
   final User newUser; //el usuario que me mando
   const UserSetState(this.newUser) // llamamos al padre
       : super(existUser: true, user: newUser);

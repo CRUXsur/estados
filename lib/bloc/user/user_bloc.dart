@@ -23,6 +23,25 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     });
     //or comprimido!
     //on<ActivateUser>((event, emit) => emit(UserSetState(event.user)));
+
+    //para la edad!!!!!
+    on<ChangeUserAge>((event, emit) {
+      //print('ChangeUserAge called');
+      if (!state.existUser) return;
+      //print('Se emitira un nuevo estado');
+      //
+      //emito un nuevo estado
+      //state.user!.edad = event.age;//funciona , pero no me gusta hacer!!!
+      //porque?, porque estoy mutando el estado
+      //para evitar hacer esto , creo una copia de
+      //nuestro modelo user.dart copyWith!!!!!
+      //
+      // emit(UserSetState(state.user!));
+      //
+      //de esta manera estamos creando una copia del estado
+      //no estamos mutando el estado
+      emit(UserSetState(state.user!.copyWith(edad: event.age)));
+    });
   }
   //
 }

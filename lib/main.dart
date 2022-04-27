@@ -16,6 +16,9 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [BlocProvider(create: (_) => UserBloc())],
       child: MaterialApp(
+        // theme: ThemeData.dark().copyWith(
+//es lo mismo
+        // ),
         debugShowCheckedModeBanner: false,
         title: 'Material App',
         initialRoute: 'pagina1',
