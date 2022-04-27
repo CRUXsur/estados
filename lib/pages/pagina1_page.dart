@@ -11,6 +11,15 @@ class Pagina1Page extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text('Pagina1')),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.delete_outline),
+            onPressed: () {
+              BlocProvider.of<UserBloc>(context, listen: false)
+                  .add(DeleteUser());
+            },
+          )
+        ],
       ),
       //BLoC Builder, es un widget que construye basado en los
       //cambios del state, cada vez que hay un cambio en el
