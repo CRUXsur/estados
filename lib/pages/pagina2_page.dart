@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Pagina2Page extends StatelessWidget {
   const Pagina2Page({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    //print(Get.arguments);
+    //print(Get.arguments['nombre']);
+
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text('Pagina2')),
