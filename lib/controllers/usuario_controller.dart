@@ -23,4 +23,13 @@ class UsuarioController extends GetxController {
       val!.edad = pEdad; // ! si va a venir
     });
   }
+
+  void agregarProfesion(String profesion) {
+    usuario.update((val) {
+      //[...val.profesiones, profesion]: las profesiones
+      //que tiene actualmente mas la profesion que estoy anadiendo
+      //nos creamos un nuevo arreglo con las profesiones
+      val!.profesiones = [...val.profesiones, profesion];
+    });
+  }
 }
