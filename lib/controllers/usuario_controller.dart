@@ -15,5 +15,12 @@ class UsuarioController extends GetxController {
     usuario.value = pUsuario;
   }
 
-  //
+  //me creo otro metodo para la edad,
+  void cambiarEdad(int pEdad) {
+    //Como hago para cambiar unicamente una propiedad que se encuentra
+    //de este observable .obs ????
+    usuario.update((val) {
+      val!.edad = pEdad; // ! si va a venir
+    });
+  }
 }
