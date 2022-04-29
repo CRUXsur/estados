@@ -9,6 +9,11 @@ class UsuarioController extends GetxController {
   var existeUsuario = false.obs;
   var usuario = Usuario().obs;
 
+  //retrona un entero con el numero de profesiones
+  int get profesionesCount {
+    return usuario.value.profesiones.length;
+  }
+
   //creo un controlador, cargar usuario
   void cargarUsuario(Usuario pUsuario) {
     existeUsuario.value = true;

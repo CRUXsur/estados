@@ -32,6 +32,17 @@ class Pagina2Page extends StatelessWidget {
               onPressed: () {
                 //
                 usuarioCtrl.cargarUsuario(Usuario(nombre: 'Andres', edad: 9));
+                Get.snackbar(
+                  'Usuario establecido',
+                  'Andres es el nombre del usuario',
+                  backgroundColor: Colors.white,
+                  boxShadows: [
+                    const BoxShadow(
+                      color: Colors.black38,
+                      blurRadius: 10,
+                    )
+                  ],
+                );
               },
             ),
             MaterialButton(
@@ -55,6 +66,18 @@ class Pagina2Page extends StatelessWidget {
                 //     'Profesion #${usuarioCtrl.usuario.value.profesiones.length + 1}');
                 usuarioCtrl.agregarProfesion(
                     'Profesion #${usuarioCtrl.profesionesCount + 1}');
+              },
+            ),
+            MaterialButton(
+              child: const Text(
+                'Cambiar Theme',
+                style: TextStyle(color: Colors.white),
+              ),
+              color: Colors.blue,
+              onPressed: () {
+                //Get.changeTheme(ThemeData.dark());
+                Get.changeTheme(
+                    Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
               },
             ),
           ],

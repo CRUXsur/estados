@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/pagina1', page: () => const Pagina1Page()),
         GetPage(name: '/pagina2', page: () => const Pagina2Page()),
       ],
+      //theme: ThemeData.dark(),
     );
   }
 }
